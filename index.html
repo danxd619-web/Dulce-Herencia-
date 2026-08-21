@@ -1,2836 +1,2498 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Panela Ecuador | Dulzura Natural</title>
-
-    <meta name="description"
-        content="Compra panela ecuatoriana natural, granulada y en bloque. Productos de calidad directamente desde Ecuador.">
-
-    <link rel="icon" href="assets/icons/favicon.png">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-        :root {
-            --brown-dark: #4b2816;
-            --brown: #70401f;
-            --brown-light: #986332;
-            --gold: #d59b38;
-            --gold-light: #f1cf82;
-            --cream: #fff8e9;
-            --cream-dark: #f4e6c8;
-            --green: #4f6b35;
-            --white: #ffffff;
-            --black: #222222;
-            --gray: #777777;
-            --shadow: 0 10px 30px rgba(0, 0, 0, .12);
-            --radius: 16px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Montserrat", sans-serif;
-            color: var(--black);
-            background: #fff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        /* =========================
-           TOP BAR
-        ========================= */
-
-        .top-bar {
-            background: var(--brown-dark);
-            color: white;
-            padding: 9px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-        }
-
-        .top-contact {
-            display: flex;
-            gap: 25px;
-        }
-
-        .top-contact span {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, .97);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
-        }
-
-        .navbar {
-            max-width: 1300px;
-            margin: auto;
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--brown);
-            color: var(--gold-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 23px;
-        }
-
-        .logo-text strong {
-            display: block;
-            font-family: "Playfair Display", serif;
-            font-size: 21px;
-            color: var(--brown-dark);
-        }
-
-        .logo-text small {
-            color: var(--green);
-            font-size: 10px;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 600;
-            transition: .3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .cart-button {
-            border: none;
-            background: var(--brown);
-            color: white;
-            padding: 12px 17px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 15px;
-            position: relative;
-            transition: .3s;
-        }
-
-        .cart-button:hover {
-            background: var(--brown-dark);
-            transform: translateY(-2px);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--gold);
-            color: var(--brown-dark);
-            font-size: 12px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-button {
-            display: none;
-            border: none;
-            background: transparent;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--brown);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 650px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(54, 28, 13, .9) 0%,
-                    rgba(54, 28, 13, .7) 45%,
-                    rgba(54, 28, 13, .15) 100%
-                ),
-                url("assets/images/hero-panela.jpg") center/cover;
-        }
-
-        .hero-content {
-            max-width: 1300px;
-            width: 100%;
-            margin: auto;
-            padding: 70px 5%;
-            color: white;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 8px 15px;
-            background: rgba(213, 155, 56, .9);
-            color: var(--brown-dark);
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            max-width: 700px;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(45px, 6vw, 76px);
-            line-height: 1.05;
-            margin-bottom: 22px;
-        }
-
-        .hero p {
-            max-width: 620px;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #f7ead2;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            border: none;
-            cursor: pointer;
-            padding: 15px 25px;
-            border-radius: 9px;
-            font-weight: 700;
-            transition: .3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--brown-dark);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(213, 155, 56, .35);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid white;
-            color: white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--brown-dark);
-        }
-
-        /* =========================
-           BENEFITS
-        ========================= */
-
-        .benefits {
-            background: var(--cream);
-            padding: 30px 5%;
-        }
-
-        .benefit-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .benefit {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .benefit i {
-            font-size: 28px;
-            color: var(--gold);
-        }
-
-        .benefit strong {
-            display: block;
-            color: var(--brown-dark);
-            margin-bottom: 3px;
-        }
-
-        .benefit span {
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-
-        section {
-            padding: 90px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title span {
-            color: var(--gold);
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .section-title h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 42px;
-            color: var(--brown-dark);
-            margin-top: 10px;
-        }
-
-        .section-title p {
-            max-width: 650px;
-            margin: 15px auto 0;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* =========================
-           PRODUCTS
-        ========================= */
-
-        .products {
-            background: white;
-        }
-
-        .products-grid {
-            max-width: 1250px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: .3s;
-            border: 1px solid #eee;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .product-image {
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-            background: var(--cream);
-        }
-
-        .product-image img {
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.06);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--green);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-category {
-            color: var(--green);
-            font-size: 10px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .product-info h3 {
-            margin: 7px 0;
-            color: var(--brown-dark);
-            font-size: 18px;
-        }
-
-        .product-info p {
-            color: var(--gray);
-            font-size: 12px;
-            line-height: 1.6;
-            min-height: 40px;
-        }
-
-        .product-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 18px;
-        }
-
-        .price {
-            font-size: 21px;
-            font-weight: 800;
-            color: var(--brown);
-        }
-
-        .add-cart {
-            width: 42px;
-            height: 42px;
-            border: none;
-            border-radius: 10px;
-            background: var(--brown);
-            color: white;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .add-cart:hover {
-            background: var(--gold);
-            color: var(--brown-dark);
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            background: var(--cream);
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 70px;
-        }
-
-        .about-image {
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image img {
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content span {
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .about-content h2 {
-            font-family: "Playfair Display", serif;
-            color: var(--brown-dark);
-            font-size: 45px;
-            margin: 12px 0 20px;
-        }
-
-        .about-content p {
-            color: var(--gray);
-            line-height: 1.9;
-            margin-bottom: 18px;
-        }
-
-        .check-list {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .check-list li {
-            margin-bottom: 13px;
-            font-weight: 600;
-        }
-
-        .check-list i {
-            color: var(--green);
-            margin-right: 10px;
-        }
-
-        /* =========================
-           PAYMENT
-        ========================= */
-
-        .payment {
-            background: white;
-        }
-
-        .payment-container {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .payment-card {
-            padding: 35px;
-            border-radius: var(--radius);
-            border: 1px solid #eee;
-            box-shadow: var(--shadow);
-        }
-
-        .payment-card i.main-icon {
-            font-size: 40px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .payment-card h3 {
-            color: var(--brown-dark);
-            margin-bottom: 12px;
-        }
-
-        .payment-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        .bank-data {
-            margin-top: 20px;
-            background: var(--cream);
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        .bank-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--cream-dark);
-            font-size: 13px;
-        }
-
-        .bank-row:last-child {
-            border-bottom: none;
-        }
-
-        .bank-row strong {
-            color: var(--brown);
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            background: var(--brown-dark);
-            color: white;
-        }
-
-        .contact-container {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-        }
-
-        .contact-content h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 44px;
-            margin: 10px 0 20px;
-        }
-
-        .contact-content p {
-            color: #e8d9c0;
-            line-height: 1.8;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-top: 25px;
-        }
-
-        .contact-item i {
-            width: 45px;
-            height: 45px;
-            background: var(--gold);
-            color: var(--brown-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-item small {
-            display: block;
-            color: #cdbfa8;
-            margin-bottom: 3px;
-        }
-
-        .contact-form {
-            background: white;
-            color: var(--black);
-            border-radius: var(--radius);
-            padding: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 7px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            height: 110px;
-            resize: vertical;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #2b180d;
-            color: #d8c9b1;
-            padding: 30px 5%;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 12px;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .socials a {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 1px solid #6f513c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: .3s;
-        }
-
-        .socials a:hover {
-            background: var(--gold);
-            color: var(--brown-dark);
-        }
-
-        /* =========================
-           CART SIDEBAR
-        ========================= */
-
-        .cart-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .55);
-            z-index: 2000;
-            display: none;
-        }
-
-        .cart-overlay.active {
-            display: block;
-        }
-
-        .cart-sidebar {
-            position: fixed;
-            right: -450px;
-            top: 0;
-            width: 420px;
-            max-width: 92%;
-            height: 100vh;
-            background: white;
-            z-index: 2001;
-            transition: .4s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            padding: 20px;
-            background: var(--brown-dark);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-header h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 23px;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .empty-cart {
-            text-align: center;
-            color: var(--gray);
-            padding: 60px 10px;
-        }
-
-        .empty-cart i {
-            font-size: 50px;
-            color: var(--cream-dark);
-            margin-bottom: 15px;
-        }
-
-        .cart-item {
-            display: grid;
-            grid-template-columns: 65px 1fr auto;
-            gap: 12px;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item-image {
-            width: 65px;
-            height: 65px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .cart-item h4 {
-            color: var(--brown-dark);
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .cart-item-price {
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        .quantity {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .quantity button {
-            width: 23px;
-            height: 23px;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .remove-item {
-            border: none;
-            background: transparent;
-            color: #b33;
-            cursor: pointer;
-        }
-
-        .cart-footer {
-            padding: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-        .total-row.final {
-            color: var(--brown-dark);
-            font-size: 21px;
-            font-weight: 800;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            margin-top: 18px;
-        }
-
-        /* =========================
-           CHECKOUT MODAL
-        ========================= */
-
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .65);
-            z-index: 3000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            width: 700px;
-            max-width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 18px;
-            padding: 30px;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 20px;
-            border: none;
-            background: none;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .modal-content h2 {
-            font-family: "Playfair Display", serif;
-            color: var(--brown-dark);
-            margin-bottom: 8px;
-        }
-
-        .checkout-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .full {
-            grid-column: 1 / -1;
-        }
-
-        select {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: white;
-        }
-
-        .transfer-info {
-            display: none;
-            background: var(--cream);
-            padding: 18px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .transfer-info.active {
-            display: block;
-        }
-
-        .file-upload {
-            margin-top: 12px;
-        }
-
-        .file-upload input {
-            width: 100%;
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 35px 15px;
-        }
-
-        .success-message.active {
-            display: block;
-        }
-
-        .success-message i {
-            font-size: 65px;
-            color: var(--green);
-            margin-bottom: 20px;
-        }
-
-        .order-number {
-            display: inline-block;
-            background: var(--cream);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 800;
-            color: var(--brown);
-            margin-top: 15px;
-        }
-
-        /* =========================
-           WHATSAPP
-        ========================= */
-
-        .whatsapp {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 58px;
-            height: 58px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
-            z-index: 1500;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, .25);
-            transition: .3s;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .benefit-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-container,
-            .contact-container,
-            .payment-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                height: 400px;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 78px;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 20px;
-                flex-direction: column;
-                display: none;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-button {
-                display: block;
-            }
-        }
-
-        @media (max-width: 650px) {
-
-            .top-bar {
-                justify-content: center;
-            }
-
-            .top-contact {
-                flex-direction: column;
-                gap: 5px;
-                text-align: center;
-            }
-
-            .top-social {
-                display: none;
-            }
-
-            .navbar {
-                padding: 12px 5%;
-            }
-
-            .hero {
-                min-height: 600px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            section {
-                padding: 65px 5%;
-            }
-
-            .section-title h2 {
-                font-size: 34px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .checkout-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .full {
-                grid-column: auto;
-            }
-
-            .cart-sidebar {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panela Ecuador | Dulzura Natural</title>
+
+<meta name="description"
+content="Tienda online de panela ecuatoriana natural, granulada y en bloque.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --brown-dark:#3b1d0f;
+    --brown:#663817;
+    --brown-light:#92552a;
+    --gold:#d6a23a;
+    --gold-light:#f3d58d;
+    --cream:#fff7e5;
+    --green:#526d36;
+    --white:#ffffff;
+    --gray:#777;
+    --black:#222;
+    --shadow:0 12px 35px rgba(0,0,0,.13);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Montserrat",sans-serif;
+    color:var(--black);
+    background:white;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* ================= TOP ================= */
+
+.topbar{
+    background:var(--brown-dark);
+    color:white;
+    padding:9px 5%;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+}
+
+.topbar span{
+    margin-right:25px;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    background:var(--brown);
+    color:var(--gold-light);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.logo h2{
+    font-family:"Playfair Display";
+    color:var(--brown-dark);
+}
+
+.logo small{
+    display:block;
+    color:var(--green);
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:var(--brown-dark);
+    font-size:14px;
+    font-weight:700;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.cart-btn{
+    background:var(--brown);
+    color:white;
+    border:none;
+    padding:13px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    position:relative;
+}
+
+.cart-count{
+    position:absolute;
+    right:-8px;
+    top:-8px;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--brown-dark);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(50,24,10,.92),
+        rgba(50,24,10,.72),
+        rgba(50,24,10,.18)
+    ),
+
+    url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero-content{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    color:white;
+}
+
+.hero-label{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--brown-dark);
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    max-width:700px;
+    font-family:"Playfair Display";
+    font-size:clamp(45px,6vw,75px);
+    line-height:1.05;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:600px;
+    color:#f7ead4;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    border:none;
+    padding:15px 24px;
+    border-radius:9px;
+    font-weight:800;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:var(--brown-dark);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-white{
+    border:1px solid white;
+    color:white;
+    background:transparent;
+}
+
+/* ================= BENEFITS ================= */
+
+.benefits{
+    background:var(--cream);
+    padding:30px 5%;
+}
+
+.benefits-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.benefit{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.benefit i{
+    font-size:28px;
+    color:var(--gold);
+}
+
+.benefit strong{
+    display:block;
+    color:var(--brown-dark);
+    font-size:14px;
+}
+
+.benefit small{
+    color:var(--gray);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:90px 5%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title span{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-family:"Playfair Display";
+    color:var(--brown-dark);
+    font-size:44px;
+    margin:10px 0;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:auto;
+    color:var(--gray);
+    line-height:1.7;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    background:white;
+}
+
+.products-grid{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.product{
+    border-radius:18px;
+    overflow:hidden;
+    background:white;
+    box-shadow:var(--shadow);
+    border:1px solid #eee;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
+}
+
+.product-img{
+    height:280px;
+    position:relative;
+    overflow:hidden;
+    background:#eee;
+}
+
+.product-img img{
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product:hover img{
+    transform:scale(1.08);
+}
+
+.badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:2;
+    background:var(--green);
+    color:white;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.category{
+    color:var(--green);
+    text-transform:uppercase;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.product-info h3{
+    color:var(--brown-dark);
+    margin:8px 0;
+}
+
+.product-info p{
+    color:var(--gray);
+    font-size:12px;
+    line-height:1.6;
+    min-height:40px;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+}
+
+.price{
+    color:var(--brown);
+    font-size:22px;
+    font-weight:800;
+}
+
+.add{
+    width:43px;
+    height:43px;
+    border:none;
+    border-radius:10px;
+    background:var(--brown);
+    color:white;
+    cursor:pointer;
+}
+
+.add:hover{
+    background:var(--gold);
+    color:var(--brown-dark);
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:var(--cream);
+}
+
+.about-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-image{
+    height:500px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.about-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.about h2{
+    font-family:"Playfair Display";
+    color:var(--brown-dark);
+    font-size:45px;
+    margin:12px 0 20px;
+}
+
+.about p{
+    color:var(--gray);
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+.checks{
+    list-style:none;
+    margin:25px 0;
+}
+
+.checks li{
+    margin:12px 0;
+    font-weight:600;
+}
+
+.checks i{
+    color:var(--green);
+    margin-right:8px;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment{
+    background:white;
+}
+
+.payment-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.payment-card{
+    padding:35px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    border:1px solid #eee;
+}
+
+.payment-card > i{
+    font-size:42px;
+    color:var(--gold);
+    margin-bottom:18px;
+}
+
+.payment-card h3{
+    color:var(--brown-dark);
+    margin-bottom:12px;
+}
+
+.payment-card p{
+    color:var(--gray);
+    font-size:14px;
+    line-height:1.7;
+}
+
+.bank{
+    background:var(--cream);
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.bank div{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px solid #eadbbd;
+    font-size:13px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:var(--brown-dark);
+    color:white;
+}
+
+.contact-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.contact h2{
+    font-family:"Playfair Display";
+    font-size:45px;
+    margin:10px 0 20px;
+}
+
+.contact p{
+    color:#dfcdb2;
+    line-height:1.8;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.contact-item i{
+    width:45px;
+    height:45px;
+    background:var(--gold);
+    color:var(--brown-dark);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact-item small{
+    display:block;
+    color:#cdbba0;
+}
+
+.contact-form{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    color:var(--black);
+}
+
+.input{
+    margin-bottom:15px;
+}
+
+.input label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.input input,
+.input textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.input textarea{
+    height:110px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#28150b;
+    color:#cbbca8;
+    padding:30px 5%;
+    text-align:center;
+}
+
+.social{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.social a{
+    width:38px;
+    height:38px;
+    border:1px solid #6a4c38;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.social a:hover{
+    background:var(--gold);
+    color:var(--brown-dark);
+}
+
+/* ================= CART ================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:2000;
+    display:none;
+}
+
+.overlay.active{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    top:0;
+    right:-450px;
+    width:430px;
+    max-width:95%;
+    height:100vh;
+    background:white;
+    z-index:2100;
+    transition:.4s;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart-header{
+    background:var(--brown-dark);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.cart-header button{
+    border:none;
+    background:none;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.cart-items{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+}
+
+.empty{
+    text-align:center;
+    color:var(--gray);
+    padding:60px 10px;
+}
+
+.empty i{
+    font-size:50px;
+    color:#e6d8bf;
+    margin-bottom:15px;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:65px 1fr auto;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.cart-item h4{
+    font-size:13px;
+    color:var(--brown-dark);
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:7px;
+}
+
+.qty button{
+    width:23px;
+    height:23px;
+    border:1px solid #ddd;
+    background:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.remove{
+    border:none;
+    background:none;
+    color:#a33;
+    cursor:pointer;
+}
+
+.cart-footer{
+    padding:20px;
+    border-top:1px solid #ddd;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:21px;
+    font-weight:800;
+    color:var(--brown-dark);
+    margin-bottom:15px;
+}
+
+/* ================= CHECKOUT ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:700px;
+    max-width:100%;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:18px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    border:none;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:25px;
+}
+
+.form-group{
+    margin-bottom:5px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.transfer{
+    display:none;
+    background:var(--cream);
+    padding:18px;
+    border-radius:10px;
+}
+
+.transfer.show{
+    display:block;
+}
+
+.success{
+    display:none;
+    text-align:center;
+    padding:30px;
+}
+
+.success.show{
+    display:block;
+}
+
+.success i{
+    color:var(--green);
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:29px;
+    z-index:1500;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .benefits-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid,
+    .payment-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .topbar{
+        display:none;
+    }
+
+    .products-grid,
+    .benefits-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    section{
+        padding:65px 5%;
+    }
+
+    .section-title h2{
+        font-size:35px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- =========================
-         TOP BAR
-    ========================= -->
 
-    <div class="top-bar">
+<!-- ================= TOPBAR ================= -->
 
-        <div class="top-contact">
+<div class="topbar">
 
-            <span>
-                <i class="fa-solid fa-phone"></i>
-                +593 99 999 9999
-            </span>
+    <div>
 
-            <span>
-                <i class="fa-solid fa-envelope"></i>
-                ventas@panelaecuador.com
-            </span>
+        <span>
+            <i class="fa-solid fa-phone"></i>
+            +593 99 999 9999
+        </span>
 
-        </div>
-
-        <div class="top-social">
-            <span>Producto ecuatoriano 🇪🇨</span>
-        </div>
+        <span>
+            <i class="fa-solid fa-envelope"></i>
+            ventas@panelaecuador.com
+        </span>
 
     </div>
 
-
-    <!-- =========================
-         HEADER
-    ========================= -->
-
-    <header>
-
-        <nav class="navbar">
-
-            <a href="#" class="logo">
-
-                <div class="logo-icon">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-
-                <div class="logo-text">
-                    <strong>Panela Ecuador</strong>
-                    <small>DULZURA NATURAL</small>
-                </div>
-
-            </a>
-
-            <button class="menu-button" id="menuButton">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-
-                <li>
-                    <a href="#inicio">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="#productos">Productos</a>
-                </li>
-
-                <li>
-                    <a href="#nosotros">Nosotros</a>
-                </li>
-
-                <li>
-                    <a href="#pagos">Pagos</a>
-                </li>
-
-                <li>
-                    <a href="#contacto">Contacto</a>
-                </li>
-
-            </ul>
-
-            <button class="cart-button" onclick="openCart()">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <span class="cart-count" id="cartCount">
-                    0
-                </span>
-
-            </button>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero" id="inicio">
-
-        <div class="hero-content">
-
-            <span class="hero-tag">
-                Producto 100% ecuatoriano
-            </span>
-
-            <h1>
-                El sabor natural de nuestra tierra
-            </h1>
-
-            <p>
-                Descubre nuestra selección de panela ecuatoriana,
-                elaborada con tradición y calidad para llevar
-                dulzura natural hasta tu hogar.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#productos" class="btn btn-primary">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    Comprar ahora
-                </a>
-
-                <a href="#nosotros" class="btn btn-outline">
-                    Conocer más
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         BENEFITS
-    ========================= -->
-
-    <div class="benefits">
-
-        <div class="benefit-grid">
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-leaf"></i>
-
-                <div>
-                    <strong>Producto natural</strong>
-                    <span>Sin procesos innecesarios</span>
-                </div>
-
-            </div>
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-truck-fast"></i>
-
-                <div>
-                    <strong>Envíos seguros</strong>
-                    <span>Entregas cuidadosamente preparadas</span>
-                </div>
-
-            </div>
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-                <div>
-                    <strong>Compra segura</strong>
-                    <span>Información protegida</span>
-                </div>
-
-            </div>
-
-            <div class="benefit">
-
-                <i class="fa-solid fa-headset"></i>
-
-                <div>
-                    <strong>Atención personalizada</strong>
-                    <span>Estamos para ayudarte</span>
-                </div>
-
-            </div>
-
-        </div>
-
+    <div>
+        🇪🇨 Producto ecuatoriano
     </div>
 
+</div>
 
-    <!-- =========================
-         PRODUCTS
-    ========================= -->
 
-    <section class="products" id="productos">
+<!-- ================= NAVBAR ================= -->
 
-        <div class="section-title">
+<header>
 
-            <span>Nuestros productos</span>
+<nav class="navbar">
 
-            <h2>Elige tu panela favorita</h2>
+<a href="#" class="logo">
 
-            <p>
-                Selecciona la presentación que más se adapte
-                a tus necesidades y agrégala directamente
-                a tu carrito.
-            </p>
-
-        </div>
-
-
-        <div class="products-grid">
-
-
-            <!-- PRODUCT 1 -->
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        Más vendido
-                    </span>
-
-                    <img
-                        src="assets/images/panela-granulada-500g.jpg"
-                        alt="Panela granulada 500 gramos"
-                        onerror="this.src='https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'"
-                    >
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Panela granulada
-                    </span>
-
-                    <h3>
-                        Panela Granulada 500 g
-                    </h3>
-
-                    <p>
-                        Panela granulada de sabor tradicional
-                        para bebidas, postres y cocina.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="price">
-                            $4.50
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(1, 'Panela Granulada 500 g', 4.50, 'assets/images/panela-granulada-500g.jpg')"
-                        >
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 2 -->
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        Natural
-                    </span>
-
-                    <img
-                        src="assets/images/panela-granulada-1kg.jpg"
-                        alt="Panela granulada 1 kilogramo"
-                        onerror="this.src='https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=80'"
-                    >
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Panela granulada
-                    </span>
-
-                    <h3>
-                        Panela Granulada 1 kg
-                    </h3>
-
-                    <p>
-                        Presentación familiar para quienes
-                        disfrutan la panela todos los días.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="price">
-                            $7.50
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(2, 'Panela Granulada 1 kg', 7.50, 'assets/images/panela-granulada-1kg.jpg')"
-                        >
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 3 -->
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="assets/images/panela-bloque-500g.jpg"
-                        alt="Panela en bloque 500 gramos"
-                        onerror="this.src='https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=800&q=80'"
-                    >
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Panela en bloque
-                    </span>
-
-                    <h3>
-                        Panela en Bloque 500 g
-                    </h3>
-
-                    <p>
-                        Presentación tradicional ideal para
-                        preparar bebidas y recetas.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="price">
-                            $4.00
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(3, 'Panela en Bloque 500 g', 4.00, 'assets/images/panela-bloque-500g.jpg')"
-                        >
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 4 -->
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        Ahorro
-                    </span>
-
-                    <img
-                        src="assets/images/pack-panela.jpg"
-                        alt="Pack familiar de panela"
-                        onerror="this.src='https://images.unsplash.com/photo-1609501676725-7186f017a4b7?auto=format&fit=crop&w=800&q=80'"
-                    >
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Pack familiar
-                    </span>
-
-                    <h3>
-                        Pack Familiar
-                    </h3>
-
-                    <p>
-                        Pack especial para familias y consumidores
-                        frecuentes de panela.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="price">
-                            $18.00
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(4, 'Pack Familiar de Panela', 18.00, 'assets/images/pack-panela.jpg')"
-                        >
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section class="about" id="nosotros">
-
-        <div class="about-container">
-
-            <div class="about-image">
-
-                <img
-                    src="assets/images/proceso-panela.jpg"
-                    alt="Proceso tradicional de elaboración de panela"
-                    onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80'"
-                >
-
-            </div>
-
-            <div class="about-content">
-
-                <span>
-                    Nuestra tradición
-                </span>
-
-                <h2>
-                    De la caña ecuatoriana a tu mesa
-                </h2>
-
-                <p>
-                    Nuestra panela representa el trabajo de
-                    productores ecuatorianos y la tradición
-                    de transformar la caña de azúcar en un
-                    producto natural lleno de sabor.
-                </p>
-
-                <p>
-                    Buscamos ofrecer productos de calidad,
-                    con una presentación moderna y un proceso
-                    de comercialización que permita llegar
-                    a más consumidores.
-                </p>
-
-                <ul class="check-list">
-
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        Producto ecuatoriano
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        Presentaciones prácticas
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        Compra online
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        Atención personalizada
-                    </li>
-
-                </ul>
-
-                <a href="#contacto" class="btn btn-primary">
-                    Contáctanos
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PAYMENT
-    ========================= -->
-
-    <section class="payment" id="pagos">
-
-        <div class="section-title">
-
-            <span>Compra segura</span>
-
-            <h2>Formas de pago</h2>
-
-            <p>
-                Puedes realizar tu compra mediante
-                transferencia bancaria.
-            </p>
-
-        </div>
-
-        <div class="payment-container">
-
-            <div class="payment-card">
-
-                <i class="fa-solid fa-building-columns main-icon"></i>
-
-                <h3>
-                    Transferencia bancaria
-                </h3>
-
-                <p>
-                    Realiza la transferencia y posteriormente
-                    envía tu comprobante para que podamos
-                    verificar el pago.
-                </p>
-
-                <div class="bank-data">
-
-                    <div class="bank-row">
-                        <span>Banco</span>
-                        <strong>BANCO [NOMBRE]</strong>
-                    </div>
-
-                    <div class="bank-row">
-                        <span>Titular</span>
-                        <strong>[TITULAR]</strong>
-                    </div>
-
-                    <div class="bank-row">
-                        <span>Cuenta</span>
-                        <strong>[NÚMERO]</strong>
-                    </div>
-
-                    <div class="bank-row">
-                        <span>Tipo</span>
-                        <strong>[CORRIENTE/AHORROS]</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="payment-card">
-
-                <i class="fa-solid fa-file-arrow-up main-icon"></i>
-
-                <h3>
-                    Comprobante de pago
-                </h3>
-
-                <p>
-                    Durante el proceso de compra podrás
-                    seleccionar y enviar tu comprobante
-                    de transferencia.
-                </p>
-
-                <br>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="openCart()"
-                >
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Ir al carrito
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section class="contact" id="contacto">
-
-        <div class="contact-container">
-
-            <div class="contact-content">
-
-                <span style="color: var(--gold);">
-                    Estamos para ayudarte
-                </span>
-
-                <h2>
-                    ¿Tienes alguna pregunta?
-                </h2>
-
-                <p>
-                    Comunícate con nosotros para conocer
-                    nuestros productos, precios, disponibilidad
-                    y opciones de envío.
-                </p>
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                    <div>
-                        <small>Teléfono</small>
-                        <strong>+593 99 999 9999</strong>
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    <div>
-                        <small>Correo electrónico</small>
-                        <strong>ventas@panelaecuador.com</strong>
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <div>
-                        <small>Ubicación</small>
-                        <strong>Loja, Ecuador</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <form class="contact-form" id="contactForm">
-
-                <div class="form-group">
-
-                    <label>
-                        Nombre completo
-                    </label>
-
-                    <input
-                        type="text"
-                        id="contactName"
-                        required
-                        placeholder="Ingrese su nombre"
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>
-                        Correo electrónico
-                    </label>
-
-                    <input
-                        type="email"
-                        id="contactEmail"
-                        required
-                        placeholder="correo@ejemplo.com"
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>
-                        Mensaje
-                    </label>
-
-                    <textarea
-                        id="contactMessage"
-                        required
-                        placeholder="¿En qué podemos ayudarte?"
-                    ></textarea>
-
-                </div>
-
-                <button class="btn btn-primary" type="submit">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Enviar mensaje
-                </button>
-
-            </form>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <div class="socials">
-
-            <a href="#" aria-label="Facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-
-            <a href="#" aria-label="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a href="#" aria-label="TikTok">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-
-            <a href="https://wa.me/593999999999" aria-label="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-
-        </div>
-
-        <p>
-            © 2026 Panela Ecuador. Todos los derechos reservados.
-        </p>
-
-    </footer>
-
-
-    <!-- =========================
-         WHATSAPP
-    ========================= -->
-
-    <a
-        href="https://wa.me/593999999999?text=Hola,%20quiero%20información%20sobre%20la%20panela"
-        class="whatsapp"
-        target="_blank"
-        aria-label="Contactar por WhatsApp"
-    >
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-
-    <!-- =========================
-         CART OVERLAY
-    ========================= -->
-
-    <div
-        class="cart-overlay"
-        id="cartOverlay"
-        onclick="closeCart()"
-    ></div>
-
-
-    <!-- =========================
-         CART SIDEBAR
-    ========================= -->
-
-    <aside class="cart-sidebar" id="cartSidebar">
-
-        <div class="cart-header">
-
-            <h3>
-                <i class="fa-solid fa-cart-shopping"></i>
-                Mi carrito
-            </h3>
-
-            <button
-                class="close-cart"
-                onclick="closeCart()"
-            >
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-        </div>
-
-
-        <div class="cart-items" id="cartItems">
-
-            <div class="empty-cart">
-
-                <i class="fa-solid fa-basket-shopping"></i>
-
-                <p>
-                    Tu carrito está vacío.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="cart-footer">
-
-            <div class="total-row">
-
-                <span>
-                    Subtotal
-                </span>
-
-                <strong id="cartSubtotal">
-                    $0.00
-                </strong>
-
-            </div>
-
-            <div class="total-row">
-
-                <span>
-                    Envío
-                </span>
-
-                <strong id="shippingCost">
-                    $0.00
-                </strong>
-
-            </div>
-
-            <div class="total-row final">
-
-                <span>
-                    Total
-                </span>
-
-                <strong id="cartTotal">
-                    $0.00
-                </strong>
-
-            </div>
-
-            <button
-                class="btn btn-primary checkout-btn"
-                onclick="openCheckout()"
-            >
-                <i class="fa-solid fa-credit-card"></i>
-                Finalizar compra
-            </button>
-
-        </div>
-
-    </aside>
-
-
-    <!-- =========================
-         CHECKOUT MODAL
-    ========================= -->
-
-    <div class="modal" id="checkoutModal">
-
-        <div class="modal-content">
-
-            <button
-                class="modal-close"
-                onclick="closeCheckout()"
-            >
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-
-            <div id="checkoutFormContainer">
-
-                <h2>
-                    Finalizar pedido
-                </h2>
-
-                <p style="color:#777; font-size:13px;">
-                    Completa tus datos para registrar tu pedido.
-                </p>
-
-
-                <form id="checkoutForm">
-
-                    <div class="checkout-grid">
-
-                        <div class="form-group">
-
-                            <label>
-                                Nombre completo *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="customerName"
-                                required
-                                placeholder="Nombre completo"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Teléfono *
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="customerPhone"
-                                required
-                                placeholder="+593..."
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Correo electrónico *
-                            </label>
-
-                            <input
-                                type="email"
-                                id="customerEmail"
-                                required
-                                placeholder="correo@ejemplo.com"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Ciudad *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="customerCity"
-                                required
-                                placeholder="Ciudad"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group full">
-
-                            <label>
-                                Dirección *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="customerAddress"
-                                required
-                                placeholder="Dirección de entrega"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group full">
-
-                            <label>
-                                Método de pago *
-                            </label>
-
-                            <select
-                                id="paymentMethod"
-                                required
-                            >
-
-                                <option value="">
-                                    Seleccione una opción
-                                </option>
-
-                                <option value="transferencia">
-                                    Transferencia bancaria
-                                </option>
-
-                                <option value="contra_entrega">
-                                    Pago contra entrega
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div
-                            class="transfer-info full"
-                            id="transferInfo"
-                        >
-
-                            <strong>
-                                <i class="fa-solid fa-building-columns"></i>
-                                Datos para transferencia
-                            </strong>
-
-                            <p style="margin-top:10px;">
-                                Banco: BANCO [NOMBRE]
-                                <br>
-                                Titular: [TITULAR]
-                                <br>
-                                Cuenta: [NÚMERO]
-                            </p>
-
-                            <div class="file-upload">
-
-                                <label>
-                                    Comprobante de transferencia
-                                </label>
-
-                                <input
-                                    type="file"
-                                    id="paymentReceipt"
-                                    accept=".jpg,.jpeg,.png,.pdf"
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group full">
-
-                            <label>
-                                Observaciones
-                            </label>
-
-                            <textarea
-                                id="orderNotes"
-                                placeholder="Información adicional para el pedido..."
-                                style="
-                                    width:100%;
-                                    height:100px;
-                                    padding:13px;
-                                    border:1px solid #ddd;
-                                    border-radius:8px;
-                                    resize:vertical;
-                                "
-                            ></textarea>
-
-                        </div>
-
-
-                        <div class="full">
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                                style="width:100%;"
-                            >
-                                <i class="fa-solid fa-check"></i>
-                                Confirmar pedido
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </form>
-
-            </div>
-
-
-            <!-- SUCCESS -->
-
-            <div
-                class="success-message"
-                id="successMessage"
-            >
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                <h2>
-                    ¡Pedido registrado!
-                </h2>
-
-                <p style="color:#777; margin-top:10px;">
-                    Hemos recibido correctamente
-                    la información de tu pedido.
-                </p>
-
-                <div class="order-number">
-                    Pedido #<span id="orderNumber"></span>
-                </div>
-
-                <br><br>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="closeCheckout()"
-                >
-                    Continuar
-                </button>
-
-            </div>
-
-        </div>
-
+    <div class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
     </div>
 
+    <div>
+        <h2>Panela Ecuador</h2>
+        <small>DULZURA NATURAL</small>
+    </div>
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+</a>
 
-    <script>
 
-        /*
-        ==============================================
-        CONFIGURACIÓN
-        ==============================================
-        */
+<ul class="nav-links">
 
-        const CONFIG = {
+<li>
+<a href="#inicio">Inicio</a>
+</li>
 
-            phone: "+593999999999",
+<li>
+<a href="#productos">Productos</a>
+</li>
 
-            email: "ventas@panelaecuador.com",
+<li>
+<a href="#nosotros">Nosotros</a>
+</li>
 
-            whatsapp: "593999999999",
+<li>
+<a href="#pagos">Pagos</a>
+</li>
 
-            shippingCost: 3.00
+<li>
+<a href="#contacto">Contacto</a>
+</li>
 
-        };
+</ul>
 
 
-        /*
-        ==============================================
-        CARRITO
-        ==============================================
-        */
+<button class="cart-btn" onclick="openCart()">
 
-        let cart = JSON.parse(
-            localStorage.getItem("panelaCart")
-        ) || [];
+<i class="fa-solid fa-cart-shopping"></i>
 
+Carrito
 
-        function saveCart() {
+<span class="cart-count" id="cartCount">
+0
+</span>
 
-            localStorage.setItem(
-                "panelaCart",
-                JSON.stringify(cart)
-            );
+</button>
 
-        }
+</nav>
 
+</header>
 
-        function addToCart(
-            id,
-            name,
-            price,
-            image
-        ) {
 
-            const existing = cart.find(
-                item => item.id === id
-            );
+<!-- ================= HERO ================= -->
 
-            if (existing) {
+<section class="hero" id="inicio">
 
-                existing.quantity++;
+<div class="hero-content">
 
-            } else {
+<span class="hero-label">
+Panela ecuatoriana 100% natural
+</span>
 
-                cart.push({
+<h1>
+Dulzura natural directamente desde Ecuador
+</h1>
 
-                    id: id,
+<p>
+Descubre nuestra panela ecuatoriana, elaborada a partir
+de caña de azúcar y presentada en diferentes formatos
+para disfrutar su sabor tradicional en cualquier momento.
+</p>
 
-                    name: name,
+<div class="buttons">
 
-                    price: price,
+<a href="#productos" class="btn btn-primary">
 
-                    image: image,
+<i class="fa-solid fa-bag-shopping"></i>
 
-                    quantity: 1
+Comprar ahora
 
-                });
+</a>
 
-            }
+<a href="#nosotros" class="btn btn-white">
 
-            saveCart();
+Conocer nuestra historia
 
-            updateCart();
+</a>
 
-            openCart();
+</div>
 
-        }
+</div>
 
+</section>
 
-        function removeFromCart(id) {
 
-            cart = cart.filter(
-                item => item.id !== id
-            );
+<!-- ================= BENEFITS ================= -->
 
-            saveCart();
+<div class="benefits">
 
-            updateCart();
+<div class="benefits-grid">
 
-        }
+<div class="benefit">
 
+<i class="fa-solid fa-leaf"></i>
 
-        function changeQuantity(id, change) {
+<div>
+<strong>Producto natural</strong>
+<small>Elaborado con caña</small>
+</div>
 
-            const item = cart.find(
-                item => item.id === id
-            );
+</div>
 
-            if (!item) return;
 
-            item.quantity += change;
+<div class="benefit">
 
-            if (item.quantity <= 0) {
+<i class="fa-solid fa-truck"></i>
 
-                removeFromCart(id);
+<div>
+<strong>Envíos seguros</strong>
+<small>Hasta tu domicilio</small>
+</div>
 
-                return;
+</div>
 
-            }
 
-            saveCart();
+<div class="benefit">
 
-            updateCart();
+<i class="fa-solid fa-shield-halved"></i>
 
-        }
+<div>
+<strong>Compra segura</strong>
+<small>Proceso protegido</small>
+</div>
 
+</div>
 
-        function updateCart() {
 
-            const container =
-                document.getElementById("cartItems");
+<div class="benefit">
 
-            const count =
-                document.getElementById("cartCount");
+<i class="fa-solid fa-headset"></i>
 
-            const subtotalElement =
-                document.getElementById("cartSubtotal");
+<div>
+<strong>Atención personalizada</strong>
+<small>Estamos para ayudarte</small>
+</div>
 
-            const shippingElement =
-                document.getElementById("shippingCost");
+</div>
 
-            const totalElement =
-                document.getElementById("cartTotal");
+</div>
 
+</div>
 
-            let totalItems = 0;
 
-            let subtotal = 0;
+<!-- ================= PRODUCTS ================= -->
 
+<section class="products" id="productos">
 
-            cart.forEach(item => {
+<div class="section-title">
 
-                totalItems += item.quantity;
+<span>Nuestra tienda</span>
 
-                subtotal +=
-                    item.price * item.quantity;
+<h2>Panela para todos los gustos</h2>
 
-            });
+<p>
+Selecciona tu presentación favorita y agrégala
+directamente al carrito de compras.
+</p>
 
+</div>
 
-            count.textContent = totalItems;
 
+<div class="products-grid">
 
-            if (cart.length === 0) {
 
-                container.innerHTML = `
+<!-- PRODUCTO 1 -->
 
-                    <div class="empty-cart">
+<div class="product">
 
-                        <i class="fa-solid fa-basket-shopping"></i>
+<div class="product-img">
 
-                        <p>
-                            Tu carrito está vacío.
-                        </p>
+<span class="badge">
+MÁS VENDIDO
+</span>
 
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+alt="Panela granulada ecuatoriana"
+>
 
-                `;
+</div>
 
-            } else {
+<div class="product-info">
 
-                container.innerHTML = cart.map(item => `
+<span class="category">
+Panela granulada
+</span>
 
-                    <div class="cart-item">
+<h3>
+Panela Granulada 500 g
+</h3>
 
-                        <img
-                            src="${item.image}"
-                            class="cart-item-image"
-                            alt="${item.name}"
-                        >
+<p>
+Panela granulada ideal para café,
+infusiones, postres y cocina.
+</p>
 
-                        <div>
+<div class="product-bottom">
 
-                            <h4>
-                                ${item.name}
-                            </h4>
+<span class="price">
+$4.50
+</span>
 
-                            <div class="cart-item-price">
-                                $${item.price.toFixed(2)}
-                            </div>
+<button
+class="add"
+onclick="addToCart(
+1,
+'Panela Granulada 500 g',
+4.50,
+'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85'
+)"
+>
 
-                            <div class="quantity">
+<i class="fa-solid fa-cart-plus"></i>
 
-                                <button
-                                    onclick="changeQuantity(${item.id}, -1)"
-                                >
-                                    −
-                                </button>
+</button>
 
-                                <span>
-                                    ${item.quantity}
-                                </span>
+</div>
 
-                                <button
-                                    onclick="changeQuantity(${item.id}, 1)"
-                                >
-                                    +
-                                </button>
+</div>
 
-                            </div>
+</div>
 
-                        </div>
 
-                        <button
-                            class="remove-item"
-                            onclick="removeFromCart(${item.id})"
-                        >
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+<!-- PRODUCTO 2 -->
 
-                    </div>
+<div class="product">
 
-                `).join("");
+<div class="product-img">
 
-            }
+<span class="badge">
+NATURAL
+</span>
 
+<img
+src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=85"
+alt="Panela granulada 1 kilogramo"
+>
 
-            const shipping =
-                cart.length > 0
-                    ? CONFIG.shippingCost
-                    : 0;
+</div>
 
+<div class="product-info">
 
-            const total =
-                subtotal + shipping;
+<span class="category">
+Panela granulada
+</span>
 
+<h3>
+Panela Granulada 1 kg
+</h3>
 
-            subtotalElement.textContent =
-                "$" + subtotal.toFixed(2);
+<p>
+Presentación familiar para consumo
+diario y preparación de bebidas.
+</p>
 
-            shippingElement.textContent =
-                "$" + shipping.toFixed(2);
+<div class="product-bottom">
 
-            totalElement.textContent =
-                "$" + total.toFixed(2);
+<span class="price">
+$7.50
+</span>
 
-        }
+<button
+class="add"
+onclick="addToCart(
+2,
+'Panela Granulada 1 kg',
+7.50,
+'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=85'
+)"
+>
 
+<i class="fa-solid fa-cart-plus"></i>
 
-        /*
-        ==============================================
-        ABRIR / CERRAR CARRITO
-        ==============================================
-        */
+</button>
 
-        function openCart() {
+</div>
 
-            document
-                .getElementById("cartSidebar")
-                .classList.add("active");
+</div>
 
-            document
-                .getElementById("cartOverlay")
-                .classList.add("active");
+</div>
 
-        }
 
+<!-- PRODUCTO 3 -->
 
-        function closeCart() {
+<div class="product">
 
-            document
-                .getElementById("cartSidebar")
-                .classList.remove("active");
+<div class="product-img">
 
-            document
-                .getElementById("cartOverlay")
-                .classList.remove("active");
+<img
+src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=900&q=85"
+alt="Panela en bloque"
+>
 
-        }
+</div>
 
+<div class="product-info">
 
-        /*
-        ==============================================
-        CHECKOUT
-        ==============================================
-        */
+<span class="category">
+Panela en bloque
+</span>
 
-        function openCheckout() {
+<h3>
+Panela en Bloque 500 g
+</h3>
 
-            if (cart.length === 0) {
+<p>
+Presentación tradicional para preparar
+aguas aromáticas y recetas.
+</p>
 
-                alert(
-                    "Agrega al menos un producto al carrito."
-                );
+<div class="product-bottom">
 
-                return;
+<span class="price">
+$4.00
+</span>
 
-            }
+<button
+class="add"
+onclick="addToCart(
+3,
+'Panela en Bloque 500 g',
+4.00,
+'https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=900&q=85'
+)"
+>
 
-            closeCart();
+<i class="fa-solid fa-cart-plus"></i>
 
-            document
-                .getElementById("checkoutModal")
-                .classList.add("active");
+</button>
 
-        }
+</div>
 
+</div>
 
-        function closeCheckout() {
+</div>
 
-            document
-                .getElementById("checkoutModal")
-                .classList.remove("active");
 
-        }
+<!-- PRODUCTO 4 -->
 
+<div class="product">
 
-        /*
-        ==============================================
-        MÉTODO DE PAGO
-        ==============================================
-        */
+<div class="product-img">
 
-        document
-            .getElementById("paymentMethod")
-            .addEventListener("change", function () {
+<span class="badge">
+AHORRO
+</span>
 
-                const transferInfo =
-                    document.getElementById(
-                        "transferInfo"
-                    );
+<img
+src="https://images.unsplash.com/photo-1609501676725-7186f017a4b7?auto=format&fit=crop&w=900&q=85"
+alt="Pack familiar de panela"
+>
 
-                if (
-                    this.value === "transferencia"
-                ) {
+</div>
 
-                    transferInfo.classList.add(
-                        "active"
-                    );
+<div class="product-info">
 
-                } else {
+<span class="category">
+Pack familiar
+</span>
 
-                    transferInfo.classList.remove(
-                        "active"
-                    );
+<h3>
+Pack Familiar de Panela
+</h3>
 
-                }
+<p>
+Una opción práctica para familias
+y consumidores frecuentes.
+</p>
 
-            });
+<div class="product-bottom">
 
+<span class="price">
+$18.00
+</span>
 
-        /*
-        ==============================================
-        GENERAR NÚMERO DE PEDIDO
-        ==============================================
-        */
+<button
+class="add"
+onclick="addToCart(
+4,
+'Pack Familiar de Panela',
+18.00,
+'https://images.unsplash.com/photo-1609501676725-7186f017a4b7?auto=format&fit=crop&w=900&q=85'
+)"
+>
 
-        function generateOrderNumber() {
+<i class="fa-solid fa-cart-plus"></i>
 
-            const date =
-                new Date();
+</button>
 
-            const year =
-                date.getFullYear();
+</div>
 
-            const random =
-                Math.floor(
-                    10000 + Math.random() * 90000
-                );
+</div>
 
-            return `${year}-${random}`;
+</div>
 
-        }
+</div>
 
+</section>
 
-        /*
-        ==============================================
-        CHECKOUT
-        ==============================================
-        */
 
-        document
-            .getElementById("checkoutForm")
-            .addEventListener(
-                "submit",
-                function (event) {
+<!-- ================= ABOUT ================= -->
 
-                    event.preventDefault();
+<section class="about" id="nosotros">
 
+<div class="about-grid">
 
-                    const orderNumber =
-                        generateOrderNumber();
+<div class="about-image">
 
+<img
+src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85"
+alt="Producción artesanal"
+>
 
-                    /*
-                    AQUÍ SE CONECTARÁ SUPABASE.
+</div>
 
-                    Posteriormente reemplazar esta parte
-                    por la función que inserte:
 
-                    customers
-                    orders
-                    order_items
-                    payments
+<div>
 
-                    y cargue el comprobante a:
+<span style="
+color:var(--gold);
+font-size:12px;
+font-weight:800;
+letter-spacing:2px;
+">
+NUESTRA HISTORIA
+</span>
 
-                    Supabase Storage
-                    */
+<h2>
+Tradición ecuatoriana en cada producto
+</h2>
 
-                    console.log(
-                        "Pedido preparado:",
-                        {
-                            orderNumber: orderNumber,
-                            customer: {
-                                name:
-                                    document.getElementById(
-                                        "customerName"
-                                    ).value,
+<p>
+La panela forma parte de la tradición agrícola
+y gastronómica de Ecuador. Nuestro objetivo es
+llevar este producto a más consumidores mediante
+una experiencia de compra moderna.
+</p>
 
-                                phone:
-                                    document.getElementById(
-                                        "customerPhone"
-                                    ).value,
+<p>
+Seleccionamos diferentes presentaciones para que
+nuestros clientes puedan disfrutar de la panela
+en bebidas, postres, recetas y preparaciones
+tradicionales.
+</p>
 
-                                email:
-                                    document.getElementById(
-                                        "customerEmail"
-                                    ).value,
+<ul class="checks">
 
-                                city:
-                                    document.getElementById(
-                                        "customerCity"
-                                    ).value,
+<li>
+<i class="fa-solid fa-circle-check"></i>
+Producto ecuatoriano
+</li>
 
-                                address:
-                                    document.getElementById(
-                                        "customerAddress"
-                                    ).value
-                            },
+<li>
+<i class="fa-solid fa-circle-check"></i>
+Presentaciones variadas
+</li>
 
-                            cart: cart,
+<li>
+<i class="fa-solid fa-circle-check"></i>
+Compra online
+</li>
 
-                            payment:
-                                document.getElementById(
-                                    "paymentMethod"
-                                ).value
+<li>
+<i class="fa-solid fa-circle-check"></i>
+Atención personalizada
+</li>
 
-                        }
-                    );
+</ul>
 
+<a href="#productos" class="btn btn-primary">
+Comprar productos
+</a>
 
-                    document
-                        .getElementById(
-                            "checkoutFormContainer"
-                        )
-                        .style.display = "none";
+</div>
 
+</div>
 
-                    document
-                        .getElementById(
-                            "successMessage"
-                        )
-                        .classList.add("active");
+</section>
 
 
-                    document
-                        .getElementById(
-                            "orderNumber"
-                        )
-                        .textContent =
-                        orderNumber;
+<!-- ================= PAYMENT ================= -->
 
+<section class="payment" id="pagos">
 
-                    cart = [];
+<div class="section-title">
 
-                    saveCart();
+<span>Compra segura</span>
 
-                    updateCart();
+<h2>Formas de pago</h2>
 
-                }
-            );
+<p>
+Realiza tu compra y selecciona el método
+de pago disponible.
+</p>
 
+</div>
 
-        /*
-        ==============================================
-        CONTACTO
-        ==============================================
-        */
 
-        document
-            .getElementById("contactForm")
-            .addEventListener(
-                "submit",
-                function (event) {
+<div class="payment-grid">
 
-                    event.preventDefault();
+<div class="payment-card">
 
-                    const name =
-                        document.getElementById(
-                            "contactName"
-                        ).value;
+<i class="fa-solid fa-building-columns"></i>
 
-                    alert(
-                        "Gracias " +
-                        name +
-                        ". Tu mensaje ha sido recibido."
-                    );
+<h3>
+Transferencia bancaria
+</h3>
 
-                    this.reset();
+<p>
+Una vez realizado el pedido puedes realizar
+la transferencia y enviar el comprobante.
+</p>
 
-                }
-            );
+<div class="bank">
 
+<div>
+<span>Banco</span>
+<strong>[NOMBRE BANCO]</strong>
+</div>
 
-        /*
-        ==============================================
-        MENÚ MÓVIL
-        ==============================================
-        */
+<div>
+<span>Titular</span>
+<strong>[TITULAR]</strong>
+</div>
 
-        document
-            .getElementById("menuButton")
-            .addEventListener(
-                "click",
-                function () {
+<div>
+<span>Cuenta</span>
+<strong>[NÚMERO]</strong>
+</div>
 
-                    document
-                        .getElementById("navLinks")
-                        .classList.toggle("active");
+<div>
+<span>Tipo</span>
+<strong>[AHORROS]</strong>
+</div>
 
-                }
-            );
+</div>
 
+</div>
 
-        /*
-        ==============================================
-        CERRAR MENÚ AL HACER CLICK
-        ==============================================
-        */
 
-        document
-            .querySelectorAll(".nav-links a")
-            .forEach(link => {
+<div class="payment-card">
 
-                link.addEventListener(
-                    "click",
-                    function () {
+<i class="fa-solid fa-credit-card"></i>
 
-                        document
-                            .getElementById("navLinks")
-                            .classList.remove("active");
+<h3>
+Compra rápida
+</h3>
 
-                    }
-                );
+<p>
+Agrega tus productos al carrito, completa
+tus datos y confirma el pedido.
+</p>
 
-            });
+<br>
 
+<button
+class="btn btn-primary"
+onclick="openCart()"
+>
 
-        /*
-        ==============================================
-        INICIALIZAR
-        ==============================================
-        */
+<i class="fa-solid fa-cart-shopping"></i>
 
-        updateCart();
+Ver carrito
 
-    </script>
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contacto">
+
+<div class="contact-grid">
+
+<div>
+
+<span style="
+color:var(--gold);
+font-size:12px;
+font-weight:bold;
+letter-spacing:2px;
+">
+CONTACTO
+</span>
+
+<h2>
+Hablemos de panela
+</h2>
+
+<p>
+¿Quieres información sobre precios,
+presentaciones, disponibilidad o envíos?
+Escríbenos.
+</p>
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-phone"></i>
+
+<div>
+
+<small>Teléfono</small>
+
+<strong>
++593 99 999 9999
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-envelope"></i>
+
+<div>
+
+<small>Correo</small>
+
+<strong>
+ventas@panelaecuador.com
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<div>
+
+<small>Ubicación</small>
+
+<strong>
+Loja, Ecuador
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<form class="contact-form"
+onsubmit="sendMessage(event)">
+
+<div class="input">
+
+<label>
+Nombre
+</label>
+
+<input
+type="text"
+required
+placeholder="Tu nombre"
+>
+
+</div>
+
+
+<div class="input">
+
+<label>
+Correo electrónico
+</label>
+
+<input
+type="email"
+required
+placeholder="correo@ejemplo.com"
+>
+
+</div>
+
+
+<div class="input">
+
+<label>
+Mensaje
+</label>
+
+<textarea
+required
+placeholder="Escribe tu mensaje..."
+></textarea>
+
+</div>
+
+
+<button class="btn btn-primary">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Enviar mensaje
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="social">
+
+<a href="#">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://wa.me/593999999999">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+
+<p>
+© 2026 Panela Ecuador | Todos los derechos reservados.
+</p>
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+class="whatsapp"
+href="https://wa.me/593999999999?text=Hola,%20quiero%20información%20sobre%20la%20panela"
+target="_blank"
+>
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<!-- ================= OVERLAY ================= -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeCart()">
+</div>
+
+
+<!-- ================= CART ================= -->
+
+<aside
+class="cart"
+id="cart">
+
+<div class="cart-header">
+
+<h3>
+<i class="fa-solid fa-cart-shopping"></i>
+Mi carrito
+</h3>
+
+<button onclick="closeCart()">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+
+<div class="cart-items" id="cartItems">
+
+<div class="empty">
+
+<i class="fa-solid fa-basket-shopping"></i>
+
+<p>
+Tu carrito está vacío
+</p>
+
+</div>
+
+</div>
+
+
+<div class="cart-footer">
+
+<div class="total">
+
+<span>Total</span>
+
+<strong id="cartTotal">
+$0.00
+</strong>
+
+</div>
+
+<button
+class="btn btn-primary"
+style="width:100%"
+onclick="checkout()"
+>
+
+<i class="fa-solid fa-credit-card"></i>
+
+Finalizar compra
+
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<div
+class="modal"
+id="checkoutModal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeCheckout()">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+
+<div id="checkoutContent">
+
+<h2>
+Finalizar pedido
+</h2>
+
+<p style="color:#777;font-size:13px;">
+Completa tus datos para registrar tu compra.
+</p>
+
+
+<form
+onsubmit="finishOrder(event)"
+class="form-grid"
+>
+
+
+<div class="form-group">
+
+<label>
+Nombre completo
+</label>
+
+<input
+id="name"
+required
+placeholder="Nombre completo"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Teléfono
+</label>
+
+<input
+id="phone"
+required
+placeholder="+593..."
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Correo
+</label>
+
+<input
+id="email"
+type="email"
+required
+placeholder="correo@ejemplo.com"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Ciudad
+</label>
+
+<input
+id="city"
+required
+placeholder="Ciudad"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+Dirección
+</label>
+
+<input
+id="address"
+required
+placeholder="Dirección de entrega"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+Método de pago
+</label>
+
+<select id="payment" required>
+
+<option value="">
+Seleccione
+</option>
+
+<option value="transferencia">
+Transferencia bancaria
+</option>
+
+<option value="contra_entrega">
+Pago contra entrega
+</option>
+
+</select>
+
+</div>
+
+
+<div
+class="transfer full"
+id="transfer">
+
+<strong>
+Datos de transferencia
+</strong>
+
+<p style="margin-top:10px;font-size:13px;line-height:1.7">
+
+Banco: [NOMBRE BANCO]<br>
+
+Titular: [TITULAR]<br>
+
+Cuenta: [NÚMERO]<br>
+
+Tipo: [AHORROS]
+
+</p>
+
+<br>
+
+<label>
+Comprobante
+</label>
+
+<input
+type="file"
+accept=".jpg,.jpeg,.png,.pdf"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+Observaciones
+</label>
+
+<textarea
+placeholder="Información adicional..."
+></textarea>
+
+</div>
+
+
+<div class="full">
+
+<button
+class="btn btn-primary"
+style="width:100%"
+>
+
+<i class="fa-solid fa-check"></i>
+
+Confirmar pedido
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+<div
+class="success"
+id="success">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h2>
+¡Pedido registrado!
+</h2>
+
+<p style="color:#777;margin-top:10px;">
+Gracias por tu compra.
+</p>
+
+<h3 style="
+margin:20px 0;
+color:var(--brown);
+">
+Pedido #<span id="orderNumber"></span>
+</h3>
+
+<button
+class="btn btn-primary"
+onclick="closeCheckout()">
+
+Continuar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ===============================
+   CARRITO
+================================ */
+
+let cart =
+JSON.parse(
+localStorage.getItem("panelaCart")
+) || [];
+
+
+function saveCart(){
+
+localStorage.setItem(
+"panelaCart",
+JSON.stringify(cart)
+);
+
+}
+
+
+function addToCart(
+id,
+name,
+price,
+image
+){
+
+let product =
+cart.find(
+item => item.id === id
+);
+
+
+if(product){
+
+product.quantity++;
+
+}else{
+
+cart.push({
+
+id:id,
+
+name:name,
+
+price:price,
+
+image:image,
+
+quantity:1
+
+});
+
+}
+
+
+saveCart();
+
+updateCart();
+
+openCart();
+
+}
+
+
+function removeItem(id){
+
+cart =
+cart.filter(
+item => item.id !== id
+);
+
+saveCart();
+
+updateCart();
+
+}
+
+
+function changeQuantity(
+id,
+change
+){
+
+let item =
+cart.find(
+item => item.id === id
+);
+
+if(!item) return;
+
+item.quantity += change;
+
+if(item.quantity <= 0){
+
+removeItem(id);
+
+return;
+
+}
+
+saveCart();
+
+updateCart();
+
+}
+
+
+function updateCart(){
+
+const items =
+document.getElementById(
+"cartItems"
+);
+
+const count =
+document.getElementById(
+"cartCount"
+);
+
+const totalElement =
+document.getElementById(
+"cartTotal"
+);
+
+
+let total = 0;
+
+let quantity = 0;
+
+
+cart.forEach(item => {
+
+total +=
+item.price *
+item.quantity;
+
+quantity +=
+item.quantity;
+
+});
+
+
+count.textContent =
+quantity;
+
+
+if(cart.length === 0){
+
+items.innerHTML = `
+
+<div class="empty">
+
+<i class="fa-solid fa-basket-shopping"></i>
+
+<p>
+Tu carrito está vacío
+</p>
+
+</div>
+
+`;
+
+}else{
+
+items.innerHTML =
+
+cart.map(item => `
+
+<div class="cart-item">
+
+<img
+src="${item.image}"
+alt="${item.name}"
+>
+
+<div>
+
+<h4>
+${item.name}
+</h4>
+
+<small>
+$${item.price.toFixed(2)}
+</small>
+
+<div class="qty">
+
+<button
+onclick="changeQuantity(${item.id},-1)"
+>
+-
+</button>
+
+<span>
+${item.quantity}
+</span>
+
+<button
+onclick="changeQuantity(${item.id},1)"
+>
++
+</button>
+
+</div>
+
+</div>
+
+<button
+class="remove"
+onclick="removeItem(${item.id})"
+>
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+totalElement.textContent =
+"$" + total.toFixed(2);
+
+}
+
+
+/* ===============================
+   ABRIR CARRITO
+================================ */
+
+function openCart(){
+
+document
+.getElementById("cart")
+.classList.add("active");
+
+document
+.getElementById("overlay")
+.classList.add("active");
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cart")
+.classList.remove("active");
+
+document
+.getElementById("overlay")
+.classList.remove("active");
+
+}
+
+
+/* ===============================
+   CHECKOUT
+================================ */
+
+function checkout(){
+
+if(cart.length === 0){
+
+alert(
+"Agrega productos al carrito antes de continuar."
+);
+
+return;
+
+}
+
+closeCart();
+
+document
+.getElementById("checkoutModal")
+.classList.add("active");
+
+}
+
+
+function closeCheckout(){
+
+document
+.getElementById("checkoutModal")
+.classList.remove("active");
+
+}
+
+
+/* ===============================
+   TRANSFERENCIA
+================================ */
+
+document
+.getElementById("payment")
+.addEventListener(
+"change",
+function(){
+
+const transfer =
+document.getElementById(
+"transfer"
+);
+
+if(this.value === "transferencia"){
+
+transfer.classList.add("show");
+
+}else{
+
+transfer.classList.remove("show");
+
+}
+
+});
+
+
+/* ===============================
+   FINALIZAR PEDIDO
+================================ */
+
+function finishOrder(event){
+
+event.preventDefault();
+
+
+const number =
+"PAN-" +
+Math.floor(
+100000 +
+Math.random() * 900000
+);
+
+
+document
+.getElementById("checkoutContent")
+.style.display="none";
+
+
+document
+.getElementById("success")
+.classList.add("show");
+
+
+document
+.getElementById("orderNumber")
+.textContent =
+number;
+
+
+/*
+AQUÍ CONECTAREMOS SUPABASE.
+
+Posteriormente se puede guardar:
+
+customers
+orders
+order_items
+payments
+
+Y el comprobante:
+
+Supabase Storage
+*/
+
+
+cart=[];
+
+saveCart();
+
+updateCart();
+
+}
+
+
+/* ===============================
+   CONTACTO
+================================ */
+
+function sendMessage(event){
+
+event.preventDefault();
+
+alert(
+"Gracias. Tu mensaje ha sido recibido."
+);
+
+event.target.reset();
+
+}
+
+
+/* ===============================
+   INICIAR
+================================ */
+
+updateCart();
+
+</script>
 
 </body>
 </html>
